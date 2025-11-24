@@ -1,0 +1,41 @@
+task: detection
+
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+# Single class: person
+num_classes: 1
+remap_mscoco_category: False
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: C:\Users\cdmts\OneDrive\Desktop\fine-tuning-obj-det\dataset\images\train
+    ann_file: C:\Users\cdmts\OneDrive\Desktop\fine-tuning-obj-det\dataset\annotations\cvat_instances_train.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  num_workers: 4
+  drop_last: True 
+  collate_fn:
+    type: BatchImageCollateFuncion
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: C:\Users\cdmts\OneDrive\Desktop\fine-tuning-obj-det\dataset\images\val
+    ann_file: C:\Users\cdmts\OneDrive\Desktop\fine-tuning-obj-det\dataset\annotations\cvat_instances_val.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~ 
+  shuffle: False
+  num_workers: 4
+  drop_last: False
+  collate_fn:
+    type: BatchImageCollateFuncion
