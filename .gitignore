@@ -171,5 +171,6 @@ rtdetr_pytorch/dataset/
 rtdetrv2_pytorch/output/
 rtdetrv2_pytorch/dataset/
 rtdetrv2_pytorch/*.engine
+rtdetrv2_pytorch/*.mlpackage
 rtdetrv2_pytorch/*.onnx.data
 rtdetrv2_pytorch/output.jpg
